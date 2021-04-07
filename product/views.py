@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Products
 # Create your views here.
 
 def list(request):
-    Data = {'Products' : Product.objects.all().order_by("id")}
+    Data = {'Products' : Products.objects.all().order_by("id")}
     return render(request,'products/home.html',Data)
