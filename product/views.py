@@ -27,8 +27,8 @@ class LoginClass(View):
         Acc = {'Account' : Account.objects.all().order_by("username")}
        
         if my_user is None:
-            HttpResponse('<script type="text/javascript"')
-            return render(request,'login/loginFail.html',Acc)
+            return HttpResponse('<script>alert("Sai thông tin tài khoản, quay về trang trước",window.location.href = "http://127.0.0.1:8000/") </script>')
+            # return render(request,'login/loginFail.html',Acc)
         
         login(request,my_user)
         Data = {'Products' : Products.objects.all().order_by("id")}

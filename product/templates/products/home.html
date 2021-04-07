@@ -3,6 +3,7 @@
 {% block title %}Home Product{% endblock %}
 
 {% block content %}
+    {% csrf_token %}
     <div class="app-content pad">
         <div class="row">
             {% for product in Products %}
