@@ -110,18 +110,23 @@
         .spacer {
             margin-top: 36px;
         }
-        
-        .form-submit{
-            margin-bottom: 20px;
+
+        .out{
+            padding-top:20px;
         }
+
+        .out a{
+            text-decoration:none;
+            margin-left: 4px;
+        }
+  
     </style>
 </head>
 <body>
     <div class="main">
 
         <form action="" method="POST" class="form" id="form-1">
-            {% csrf_token %}
-          <h3 class="heading">Đăng Nhập</h3>
+          <h3 class="heading">Đăng Ký</h3>
       
           <div class="spacer"></div>
       
@@ -136,9 +141,16 @@
             <input id="password" name="password" value = "" type="password" placeholder="Nhập mật khẩu" class="form-control">
             <span class="form-message"></span>
           </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Nhập lại mật khẩu</label>
+            <input id="re-password" name="re-password" value = "" type="password" placeholder="Nhập lại mật khẩu" class="form-control">
+            <span class="form-message"></span>
+          </div>
       
-          <button class="form-submit">Đăng Nhập</button>
-          <span class="sub-title-login"> Nếu bạn chưa có tài khoản <a href="http://127.0.0.1:8000/register/">Đăng Ký</a></span>
+          <button class="form-submit">Đăng Ký</button>
+          <div class="out">
+            <span>Trở lại trang</span> <a href="http://127.0.0.1:8000/">Đăng Nhập </a>
+          </div>
         </form>
       </div>
 </body>

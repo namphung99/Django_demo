@@ -25,15 +25,18 @@ class LoginClass(View):
 
         my_user = authenticate(username= username, password=password)
         Acc = {'Account' : Account.objects.all().order_by("username")}
-        return HttpResponse('ban vua dang nhap: %s' %Acc.username)
-        # if my_user is None:
-        #     HttpResponse('<script type="text/javascript"')
-        #     return render(request,'login/loginFail.html',Acc)
+       
+        if my_user is None:
+            HttpResponse('<script type="text/javascript"')
+            return render(request,'login/loginFail.html',Acc)
         
-        # login(request,my_user)
-        # Data = {'Products' : Products.objects.all().order_by("id")}
-        # return render(request,'products/home.html',Data)
+        login(request,my_user)
+        Data = {'Products' : Products.objects.all().order_by("id")}
+        return render(request,'products/home.html',Data)
 
+class RegisterClass(View):
+    def get(self,request):
+        return render(request,'register/register.html')
 def list(request):
     Data = {'Products' : Products.objects.all().order_by("id")}
     return render(request,'products/home.html',Data)
