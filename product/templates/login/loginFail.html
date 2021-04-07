@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+.content-error{
+    height:100vh;
+}
+
+.error{
+    align-items: center;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="content-error">
+        <div class="error">
+            <h5 style = "color: red;">Thông tin đăng nhập không chính xác!!!!</h5>
+            <a href="http://127.0.0.1:8000/">Quay lại trang login</a>
+            <a href="#">Đăng ký tài khoản</a>
+        </div>
+    </div>
+        {% for account in Account %}
+                  <p>{{account.username}}</p>  
+                  <p>{{account.password}}</p>  
+        {% endfor %}
+</body>
+</html>
+

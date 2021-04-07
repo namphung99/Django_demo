@@ -1,13 +1,12 @@
 from django.contrib import admin
-from .models import Products, Account, Fullname, Address, Customer
+from .models import Products, Account, Fullname, Address, Customer,Account
 # Register your models here.
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'price']
-
-
+    list_display = ['id', 'name', 'price']
 admin.site.register(Products, PostAdmin)
 admin.site.register(Fullname)
 admin.site.register(Address)
 admin.site.register(Customer)
+admin.site.register(Account)
