@@ -5,6 +5,7 @@ from .models import Products, Account
 from django.views import View
 
 from django.contrib.auth import authenticate,login
+from django.contrib.auth.models import User
 
 
 
@@ -34,9 +35,23 @@ class LoginClass(View):
         Data = {'Products' : Products.objects.all().order_by("id")}
         return render(request,'products/home.html',Data)
 
-class RegisterClass(View):
-    def get(self,request):
+
+def register(request):
+    
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+
+        user = User.objects.create_user(username=username, email=email, password=password1)
+        user.save()
+        print('user created')
+        return redirect('http://127.0.0.1:8000/products/')
+    else:
         return render(request,'register/register.html')
+
+
 def list(request):
     Data = {'Products' : Products.objects.all().order_by("id")}
     return render(request,'products/home.html',Data)
