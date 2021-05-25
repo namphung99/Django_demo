@@ -11,10 +11,6 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
-# class IndexClass(View):
-#     def get(self,request):
-#          return HttpResponse('<h1>Login</h1>')
-
 
 class LoginClass(View):
     def get(self,request):
@@ -25,7 +21,8 @@ class LoginClass(View):
         password = request.POST.get('password')
 
         my_user = authenticate(username= username, password=password)
-        Acc = {'Account' : Account.objects.all().order_by("username")}
+        # Acc = {'Account' : Account.objects.all()}
+        # print('acc is: ',Acc)
        
         if my_user is None:
             return HttpResponse('<script>alert("Sai thông tin tài khoản, quay về trang trước",window.location.href = "http://127.0.0.1:8000/") </script>')

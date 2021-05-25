@@ -1,20 +1,24 @@
+
 {% extends "pages/base.html" %}
 
 {% block title %}Home Product{% endblock %}
 
 {% block content %}
-    {% csrf_token %}
     <div class="app-content pad">
         <div class="row">
             {% for product in Products %}
+            {% csrf_token %}
                 <div class="col-lg-3">
                     <div class="card" style = "margin-top: 30px;">
                         <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text">Giá sản phẩm: {{ product.price}} $</p>
-                            <p class="card-text">Tác giả: {{ product.author}}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div style = "display:flex;justify-content: space-between;">
+                                <p class="card-text">Tác giả: {{ product.author}}</p>
+                                <p class="card-text">Còn lại: {{ product.quantity}} sp</p>
+                            </div>
+                            <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
                         </div>
                     </div>
                 </div>
